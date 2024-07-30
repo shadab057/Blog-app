@@ -3,11 +3,14 @@ const cors = require('cors')
 const morgan = require ('morgan')
 const colors = require('colors')
 const dotenv = require('dotenv')
-
+const connectDB = require("./config/db")
 
 // env config
 dotenv.config({ 
 })
+
+// mongodb connection
+connectDB();
 
 // rest object 
 const app = express()
@@ -31,8 +34,8 @@ const PORT = process.env.PORT || 8080 ;
 
 //listing
 app.listen(PORT, () => {
-    console.log(
-      `Server Running on ${process.env.DEV_MODE} mode port no ${PORT}`.bgCyan
-        .white
-    );
-  });
+  console.log(
+    `Server Running on ${process.env.DEV_MODE} mode port no ${PORT}`.bgCyan
+      .white
+  );
+});
